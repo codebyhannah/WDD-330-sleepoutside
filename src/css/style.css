@@ -205,7 +205,7 @@ button {
 .cart-card__remove-item {
   grid-row: 1/2;
   grid-column: 4;
-  padding: 0.5em .732em;
+  padding: 0.5em 0.732em;
   /*background-color: transparent;
   color: var(--dark-grey);*/
 }
@@ -232,4 +232,16 @@ footer {
 /* hidden elements style */
 .hide {
   display: none;
+}
+
+/* home page product category images grid style */
+.products.categories {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+.products.categories img, .products.categories a {
+  grid-row: 1/2;
+  padding: 0rem .25rem;
 }
