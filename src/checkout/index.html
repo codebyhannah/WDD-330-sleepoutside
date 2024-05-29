@@ -8,7 +8,7 @@
 
     <title>Sleep Outside | Checkout</title>
 
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="/css/style.css" />
     <script src="../js/checkout.js" type="module"></script>
   </head>
 
@@ -16,8 +16,46 @@
     <header class="divider"></header>
 
     <main class="divider">
-      <section class="products">
+      <section class="products checkout">
         <h2>Review & Place your Order</h2>
+        <div id="order-summary">
+          <h3>Order Summary</h3>
+          <p id="num-items">Number of Items: </p>
+          <p id="cartTotal">Subtotal: </p>
+          <p id="shipping">Shipping Estimate: </p>
+          <p id="tax">Tax: </p>
+          <p id="orderTotal">Order Total: </p>
+        </div>
+        <form name="checkout" id="checkout">
+          <fieldset id="name" name="name">
+            <legend>Name</legend>
+            <label for="fname">First Name: </label>
+            <input type="text" id="fname" name="fname" required>
+            <label for="lname">Last Name: </label>
+            <input type="text" id="lname" name="lname" required>
+          </fieldset>
+          <fieldset id="address" name="address">
+            <legend>Address</legend>
+            <label for="st-address">Street Address: </label>
+            <input type="text" id="st-address" name="st-address" required>
+            <label for="city">City: </label>
+            <input type="text" id="city" name="city" required>
+            <label for="state">State: </label>
+            <input type="text" id="state" name="state" required>
+            <label for="zip">Zip Code: </label>
+            <input type="text" id="zip" name="zip" required>
+          </fieldset>
+          <fieldset id="payment" name="payment">
+            <legend>Payment</legend>
+            <label for="card-num">Credit Card Number: </label>
+            <input type="text" id="card-num" name="card-num" required>
+            <label for="exp-date">Expiration Date: </label>
+            <input type="text" id="exp-date" name="exp-date" required>
+            <label for="sec-code">Security Code: </label>
+            <input type="text" id="sec-code" name="sec-code" required>
+          </fieldset>
+          <input type="submit" value="Checkout" class="button">
+        </form>
       </section>
     </main>
 
