@@ -254,17 +254,16 @@ a.button {
   text-decoration: none;
 }
 
-
 /* Checkout styles */
 input:required {
-  border: .15rem solid red;
-  border-radius: .2rem;
+  border: 0.15rem solid red;
+  border-radius: 0.2rem;
 }
-input:focus:not(input[type=submit]) {
+input:focus:not(input[type="submit"]) {
   background-color: aliceblue;
 }
 input:valid {
-  border: .15rem solid green;
+  border: 0.15rem solid green;
 }
 
 .products.checkout {
@@ -276,7 +275,7 @@ input:valid {
 }
 .products.checkout #order-summary {
   grid-column: 1/2;
-  border: .2rem solid var(--primary-color);
+  border: 0.2rem solid var(--primary-color);
   margin: 1rem;
   padding: 1rem;
   height: fit-content;
@@ -284,26 +283,26 @@ input:valid {
 .products.checkout #checkout {
   grid-column: 2/3;
   margin: 1rem;
-  padding: .5rem;
+  padding: 0.5rem;
 }
 #checkout fieldset {
-  border: .2rem solid var(--primary-color);
+  border: 0.2rem solid var(--primary-color);
   margin: 1rem 0rem;
 }
 #checkout fieldset:first-of-type {
   margin: 0rem;
 }
 #checkout legend {
-  padding: 0rem .5rem;
+  padding: 0rem 0.5rem;
   font-size: var(--large-font);
 }
 #checkout input {
   display: block;
-  margin: .1rem 0rem;
+  margin: 0.1rem 0rem;
 }
 #checkout label {
   display: block;
-  margin-top: .5rem;
+  margin-top: 0.5rem;
 }
 #checkout label:first-of-type {
   margin-top: 0;

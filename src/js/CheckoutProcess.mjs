@@ -1,4 +1,29 @@
 import { getLocalStorage } from "./utils.mjs";
+import ExternalServices from "./ExternalServices.mjs";
+
+const services = new ExternalServices();
+
+function formDataToJSON(formElem) {
+    const formData = new FormData(formElem),
+        convertedJSON = {};
+    formData.forEach((value, key) => convertedJSON[key] = value);
+
+    return convertedJSON;
+}
+
+function packageItems(items) {
+    // convert the list of products from localstorage to a simpler form for the checkout process.
+    const simplifiedItems = items.map((item) => {
+        console.log(item);
+        return {
+            id: item.Id,
+            price: item.FinalPrice,
+            name: item.Name,
+            quantity: 1
+        };
+    });
+    return simplifiedItems;
+}
 
 export default class CheckoutProcess {
     constructor(key, outputElem) {
@@ -46,9 +71,9 @@ export default class CheckoutProcess {
         orderTotal.innerText = `Order Total: $${this.orderTotal}`;
     }
     async checkout() {
+        // build the data object from the calculated fields, the items in the cart and the info entered into the form.
         const formElem = document.forms["checkout"];
-
-        const json = FormDataToJSON(formElem);
+        const json = formDataToJSON(formElem);
         // add totals and item details
         json.orderDate = new Date();
         json.orderTotal = this.orderTotal;
@@ -57,6 +82,7 @@ export default class CheckoutProcess {
         json.items = packageItems(this.list);
         console.log(json);
         try {
+            // call the checkout method in our ExternalServices module and send it our data object.
             const response = await services.checkout(json);
         } catch (err) {
             console.log(err);

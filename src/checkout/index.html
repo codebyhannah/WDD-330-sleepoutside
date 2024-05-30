@@ -20,41 +20,53 @@
         <h2>Review & Place your Order</h2>
         <div id="order-summary">
           <h3>Order Summary</h3>
-          <p id="num-items">Number of Items: </p>
-          <p id="cartTotal">Subtotal: </p>
-          <p id="shipping">Shipping Estimate: </p>
-          <p id="tax">Tax: </p>
-          <p id="orderTotal">Order Total: </p>
+          <p id="num-items">Number of Items:</p>
+          <p id="cartTotal">Subtotal:</p>
+          <p id="shipping">Shipping Estimate:</p>
+          <p id="tax">Tax:</p>
+          <p id="orderTotal">Order Total:</p>
         </div>
         <form name="checkout" id="checkout">
           <fieldset id="name" name="name">
             <legend>Name</legend>
             <label for="fname">First Name: </label>
-            <input type="text" id="fname" name="fname" required>
+            <input type="text" id="fname" name="fname" required />
             <label for="lname">Last Name: </label>
-            <input type="text" id="lname" name="lname" required>
+            <input type="text" id="lname" name="lname" required />
           </fieldset>
           <fieldset id="address" name="address">
             <legend>Address</legend>
-            <label for="st-address">Street Address: </label>
-            <input type="text" id="st-address" name="st-address" required>
+            <label for="street">Street Address: </label>
+            <input type="text" id="street" name="street" required />
             <label for="city">City: </label>
-            <input type="text" id="city" name="city" required>
+            <input type="text" id="city" name="city" required />
             <label for="state">State: </label>
-            <input type="text" id="state" name="state" required>
+            <input type="text" id="state" name="state" required />
             <label for="zip">Zip Code: </label>
-            <input type="text" id="zip" name="zip" required>
+            <input type="text" id="zip" name="zip" required />
           </fieldset>
           <fieldset id="payment" name="payment">
             <legend>Payment</legend>
-            <label for="card-num">Credit Card Number: </label>
-            <input type="text" id="card-num" name="card-num" required>
-            <label for="exp-date">Expiration Date: </label>
-            <input type="text" id="exp-date" name="exp-date" required>
-            <label for="sec-code">Security Code: </label>
-            <input type="text" id="sec-code" name="sec-code" required>
+            <label for="cardNumber">Credit Card Number: </label>
+            <input
+              type="text"
+              id="cardNumber"
+              name="cardNumber"
+              value="1234123412341234"
+              required
+            /><!--value included for testing-->
+            <label for="expiration">Expiration Date: </label>
+            <input type="text" id="expiration" name="expiration" required />
+            <label for="code">Security Code: </label>
+            <input
+              type="text"
+              id="code"
+              value="123"
+              name="code"
+              required
+            /><!--value included for testing-->
           </fieldset>
-          <input type="submit" value="Checkout" class="button">
+          <input type="submit" value="Checkout" class="button" />
         </form>
       </section>
     </main>
