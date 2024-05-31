@@ -84,8 +84,7 @@ export default class CheckoutProcess {
         try {
             // call the checkout method in our ExternalServices module and send it our data object.
             const response = await services.checkout(json);
-            console.log(`Response : ${response}`);
-            console.log(typeof response);
+            console.log(response);
         } catch (err) {
             console.log(err);
         }
