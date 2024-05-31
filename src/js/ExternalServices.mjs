@@ -1,11 +1,11 @@
 const baseURL = import.meta.env.VITE_SERVER_URL;
 
-function convertToJson(res) {
-  let resJson = res.json();
-  if (resJson.ok) {
-    return resJson;/*res.json();*/
+async function convertToJson(res) {
+  const resJson = await res.json();
+  if (res.ok) {
+    /*console.log(resJson);*/
+    return resJson;
   } else {
-    /*throw new Error("Bad Response");*/
     throw { name: "servicesError", message: resJson };
   }
 }
@@ -17,6 +17,7 @@ export default class ExternalServices {
   }
   async getData(category) {
     const response = await fetch(baseURL + `products/search/${category}`);
+    console.log("beginning of error");
     const data = await convertToJson(response);
     return data.Result;
   }
@@ -33,6 +34,6 @@ export default class ExternalServices {
       },
       body: JSON.stringify(payload),
     };
-    return await fetch("https://wdd330-backend.onrender.com:3000/checkout", options).then(convertToJson);
+    return await fetch(baseURL + "checkout/"/*"https://wdd330-backend.onrender.com:3000/checkout"*/, options).then(convertToJson);
   }
 }
