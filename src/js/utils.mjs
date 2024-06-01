@@ -59,6 +59,21 @@ export async function loadHeaderFooter() {
   let footer = document.querySelector("footer");
   renderWithTemplate(headerTemplate, header);
   renderWithTemplate(footerTemplate, footer);
+  updateCartCount();
+}
+
+export function updateCartCount() {
+  let cartNumElem = document.querySelector("#cart-item-num");
+  let cartItems = getLocalStorage("so-cart");
+  if (!cartItems || cartItems.length == 0) {
+    cartNumElem.classList.add("hide");
+    console.log("hidden");
+  }
+ else {
+  console.log(cartItems.length);
+  cartNumElem.classList.remove("hide");
+  cartNumElem.innerText = cartItems.length;
+ }
 }
 
 export function alertMessage(message, scroll = true) {
@@ -66,7 +81,6 @@ export function alertMessage(message, scroll = true) {
   alert.classList.add("alert");
   alert.innerHTML = `<p>${message}</p><button>X</button>`;
   alert.addEventListener("click", e => {
-    console.log(e.target.tagName);
     if(e.target.tagName == "BUTTON") {
       // target tagname must be uppercase for some reason
       main.removeChild(alert);

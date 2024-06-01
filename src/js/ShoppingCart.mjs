@@ -1,4 +1,4 @@
-import { getLocalStorage, setLocalStorage, renderListWithTemplate } from "./utils.mjs";
+import { getLocalStorage, setLocalStorage, renderListWithTemplate, updateCartCount } from "./utils.mjs";
 
 function cartItemTemplate(cartItem) {
   
@@ -47,6 +47,7 @@ export default class ShoppingCart {
         let updatedCart = productsInCart.filter((product) => !(product.Id == id));
         setLocalStorage(this.listSource, updatedCart);
         this.renderCartContents();
+        updateCartCount();
     }
 
     getCartItemsWithQuantitiesList(cartItems) {

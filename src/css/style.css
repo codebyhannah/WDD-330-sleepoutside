@@ -342,3 +342,13 @@ input:valid {
   border: 0.2rem solid var(--primary-color);
   width: fit-content;
 }
+
+/* backpack icon superscript number of items in cart style */
+#cart-item-num {
+  position: absolute;
+  top: .2rem;
+  right: -.4rem;
+  background-color: var(--primary-color);
+  padding: .1rem .4rem;
+  border-radius: 1rem;
+}
