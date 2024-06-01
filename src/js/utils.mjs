@@ -67,10 +67,8 @@ export function updateCartCount() {
   let cartItems = getLocalStorage("so-cart");
   if (!cartItems || cartItems.length == 0) {
     cartNumElem.classList.add("hide");
-    console.log("hidden");
   }
  else {
-  console.log(cartItems.length);
   cartNumElem.classList.remove("hide");
   cartNumElem.innerText = cartItems.length;
  }
