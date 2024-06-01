@@ -1,4 +1,4 @@
-import { setLocalStorage } from "./utils.mjs"; 
+import { setLocalStorage, alertMessage } from "./utils.mjs"; 
 
 function productDetailsTemplate(product) {
     return `<section class="product-detail"> <h3>${product.Brand.Name}</h3>
@@ -35,13 +35,14 @@ export default class ProductDetails {
           .addEventListener("click", this.addProductToCart.bind(this));
         }
     addProductToCart() {
-    // To avoid overwriting in localStorage, either use a different key for each item, or place items in an array. Get array from local storage, push to array, and set local storage to updated array.
-    let productsInCart = JSON.parse(localStorage.getItem("so-cart"));
-    if (!localStorage.getItem("so-cart")) {
-        productsInCart = [];
-    }
-    productsInCart.push(this.product);
-    setLocalStorage("so-cart", productsInCart);
+      // To avoid overwriting in localStorage, either use a different key for each item, or place items in an array. Get array from local storage, push to array, and set local storage to updated array.
+      let productsInCart = JSON.parse(localStorage.getItem("so-cart"));
+      if (!localStorage.getItem("so-cart")) {
+          productsInCart = [];
+      }
+      productsInCart.push(this.product);
+      setLocalStorage("so-cart", productsInCart);
+      alertMessage("Item added to cart!")
     }
     
     renderProductDetails(elem) {

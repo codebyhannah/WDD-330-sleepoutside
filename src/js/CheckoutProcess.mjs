@@ -1,4 +1,4 @@
-import { getLocalStorage } from "./utils.mjs";
+import { getLocalStorage, alertMessage, setLocalStorage, removeAllAlerts } from "./utils.mjs";
 import ExternalServices from "./ExternalServices.mjs";
 
 const services = new ExternalServices();
@@ -47,7 +47,7 @@ export default class CheckoutProcess {
         // calculate the total of all the items in the cart
         const amounts = this.list.map((item) => item.FinalPrice);
         this.itemTotal = amounts.reduce((sum, item) => sum + item);
-        summaryElement.innerText = `Subtotal: $${this.itemTotal}`;
+        summaryElement.innerText = `Subtotal: $${this.itemTotal.toFixed(2)}`;
     }
     calculateOrderTotal() {
         // calculate the shipping and tax amounts. Then use them along with the cart total to figure out the order total.
@@ -84,8 +84,14 @@ export default class CheckoutProcess {
         try {
             // call the checkout method in our ExternalServices module and send it our data object.
             const response = await services.checkout(json);
+            setLocalStorage("so-cart", []);
+            location.assign("./success.html");
             console.log(response);
         } catch (err) {
+            removeAllAlerts();
+            for (let message in err.message) {
+                alertMessage(err.message[message]);
+            }
             console.log(err);
         }
     }

@@ -307,3 +307,38 @@ input:valid {
 #checkout label:first-of-type {
   margin-top: 0;
 }
+
+.alert {
+  background-color: var(--primary-color);
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  margin: .5rem auto;
+  padding: .5rem;
+  min-width: 90%;
+  border: 0.1rem solid #ff8922;
+}
+.alert button {
+  font-size: var(--small-font);
+  display: inline;
+  background-color: transparent;
+  color: var(--dark-grey);
+  font-weight: bold;
+  margin: 0 .5rem;
+  padding: 0;
+}
+.alert p {
+  margin: 0 .5rem;
+}
+
+/* checkout success page styles */
+#checkout-success {
+  font-size: 2rem;
+  text-align: center;
+  padding: 2rem;
+  margin: 5rem auto;
+  border: 0.2rem solid var(--primary-color);
+  width: fit-content;
+}
